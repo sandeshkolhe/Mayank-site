@@ -13,7 +13,7 @@ const STORAGE_KEYS = {
 
 // Bump whenever DEFAULT_* content below changes, so returning browsers
 // with older cached localStorage data pick up the new official content.
-const CURRENT_DATA_VERSION = '8';
+const CURRENT_DATA_VERSION = '14';
 
 // --- Generic dot-path helpers (used to read/write nested PAGE_CONTENT fields) ---
 function getByPath(obj, path) {
@@ -60,8 +60,8 @@ const DEFAULT_SOCIETY_DETAILS = {
   herbalImage: "assets/images/herbal-garden.jpg",
   // Approximate location of Sector 5, Airoli, Navi Mumbai - update with the exact
   // plot coordinates from the Admin Panel (Society Details tab).
-  mapLat: "19.1567",
-  mapLng: "72.9993",
+  mapLat: "19.1484242",
+  mapLng: "72.998427",
   heroDescription: "Our Housing Society, comprising of 64 members situated on a prime 3,588.22 sqm. CIDCO-leased plot along the Mulund-Airoli Highway - A location with exceptional potential for a thoughtfully planned Redevelopment. The proposed Commercial-cum-Residential Development will bring together quality Residences, well-planned Commercial spaces and Modest, carefully selected Amenities, creating a contemporary environment focused on Comfort, Convenience and lasting Values.",
   aboutParagraph1: "Our Housing Society, comprising 64 members, occupies a prime 3,588.22 sq. m. CIDCO-leased plot along the Mulund-Airoli Highway. Its location offers excellent redevelopment potential.",
   aboutParagraph2: "The proposed project will create a modern commercial-cum-residential development with quality homes, suitable commercial spaces and essential amenities, while protecting every member's interests.",
@@ -92,28 +92,6 @@ const DEFAULT_COMMITTEE_MEMBERS = [
 // Listed publicly in this order (no categories or search on the page).
 const DEFAULT_DOCUMENTS = [
   {
-    id: "doc-01",
-    title: "Society Registration Certificate",
-    category: "Certificate",
-    refNo: "N.B.O.M/CIDCO/HSG/(T.C)/10537/D.R/2024-2025",
-    date: "2024-11-22",
-    displayDate: "22 Nov 2024",
-    description: "Official registration certificate issued by the Deputy Registrar, Cooperative Societies (CIDCO), Navi Mumbai, confirming Mayank Co-operative Housing Society Ltd. is duly registered under Section 154(B)(2) of the Maharashtra Co-operative Societies Act, 1960.",
-    fileUrl: "assets/docs/MCHS_Registration_Certificate.pdf",
-    status: "active"
-  },
-  {
-    id: "doc-04",
-    title: "SGBM 1 Minutes - 1st February 2026",
-    category: "Minutes",
-    refNo: "SGBM / 2026-01",
-    date: "2026-02-01",
-    displayDate: "1 Feb 2026",
-    description: "Minutes of the Special General Body Meeting: Resolution to proceed with redevelopment passed unanimously, Core Redevelopment Committee (CRDC) formed, and Mr. S. M. Suryavanshi appointed as Single Point Contact for the redevelopment process.",
-    fileUrl: "assets/docs/SGBM_Minutes_01Feb2026.pdf",
-    status: "active"
-  },
-  {
     id: "doc-05",
     title: "Managing & Redevelopment Committee - Members List",
     category: "Committee",
@@ -125,36 +103,25 @@ const DEFAULT_DOCUMENTS = [
     status: "active"
   },
   {
-    id: "doc-06",
-    title: "SGBM 2 Minutes - 21st June 2026",
-    category: "Minutes",
-    refNo: "SGBM / 2026-02",
-    date: "2026-06-21",
-    displayDate: "21 Jun 2026",
-    description: "Minutes of the Special General Body Meeting held on 21 June 2026: appointment of M/s. Vastospati Design Group as PMC, M/s. Prime Legal as Legal Firm and Mr. V. Chandrasekhar as Advisor, approval of draft appointment letters and provision for pre-operative expenses.",
-    fileUrl: "assets/docs/SGBM2_Minutes_21Jun2026.pdf",
+    id: "doc-01",
+    title: "Society Registration Certificate",
+    category: "Certificate",
+    refNo: "N.B.O.M/CIDCO/HSG/(T.C)/10537/D.R/2024-2025",
+    date: "2024-11-22",
+    displayDate: "22 Nov 2024",
+    description: "Official registration certificate issued by the Deputy Registrar, Cooperative Societies (CIDCO), Navi Mumbai, confirming Mayank Co-operative Housing Society Ltd. is duly registered under Section 154(B)(2) of the Maharashtra Co-operative Societies Act, 1960.",
+    fileUrl: "assets/docs/MCHS_Registration_Certificate.pdf",
     status: "active"
   },
   {
-    id: "doc-07",
-    title: "Redevelopment Feasibility Report",
+    id: "doc-03",
+    title: "Development Plan - Node Airoli (2018-2038)",
     category: "Plan",
-    refNo: "PMC Report",
-    date: "2026-08-01",
-    displayDate: "1 Aug 2026",
-    description: "Feasibility Report for the proposed redevelopment, submitted by the Society's Project Management Consultant on 1 August 2026 and placed before members at SGBM 3.",
-    fileUrl: "assets/docs/Redevelopment_Feasibility_Report.pdf",
-    status: "active"
-  },
-  {
-    id: "doc-08",
-    title: "SGBM 3 Draft Minutes - 30th August 2026",
-    category: "Minutes",
-    refNo: "SGBM / 2026-03 (Draft)",
-    date: "2026-08-30",
-    displayDate: "30 Aug 2026",
-    description: "Draft minutes of the Special General Body Meeting held on 30 August 2026, including Resolution No. 1 approving the Redevelopment Feasibility Report.",
-    fileUrl: "assets/docs/SGBM3_Draft_Minutes_30Aug2026.pdf",
+    refNo: "NMMC Development Plan",
+    date: "2025-07-23",
+    displayDate: "Sanctioned 23 Jul 2025",
+    description: "Navi Mumbai Municipal Corporation's proposed land-use Development Plan map for Node-Airoli, marking Plot No. 5, Sector No. 5, Airoli, Navi Mumbai as the land under reference for this society.",
+    fileUrl: "assets/docs/MAYANK_PLAN.pdf",
     status: "active"
   },
   {
@@ -169,14 +136,80 @@ const DEFAULT_DOCUMENTS = [
     status: "active"
   },
   {
-    id: "doc-03",
-    title: "Development Plan - Node Airoli (2018-2038)",
+    id: "doc-09",
+    title: "PMC Appointment Letter & Agreement",
+    category: "Agreement",
+    refNo: "PMC / Vastospati Design Group",
+    date: "2026-07-02",
+    displayDate: "2 Jul 2026",
+    description: "Project Management Consultancy Agreement dated 2 July 2026 between Mayank Co-operative Housing Society Ltd. and M/s. Vastospati Design Group for the proposed redevelopment at Plot No. 5, Sector 5, Airoli, Navi Mumbai.",
+    fileUrl: "assets/docs/PMC_Agreement_06Sep2026.pdf",
+    status: "active"
+  },
+  {
+    id: "doc-10",
+    title: "Advocate Appointment Letter & Scope Of Work",
+    category: "Appointment",
+    refNo: "Prime Legal",
+    date: "2026-06-23",
+    displayDate: "23 Jun 2026",
+    description: "Letter dated 23 June 2026 appointing Prime Legal, Advocates & Legal Consultants, CBD Belapur, as Legal Counsel for the society's redevelopment following the SGBM of 21 June 2026, together with the scope of work.",
+    fileUrl: "assets/docs/Legal_Counsel_Appointment_06Sep2026.pdf",
+    status: "active"
+  },
+  {
+    id: "doc-07",
+    title: "Redevelopment Feasibility Report",
     category: "Plan",
-    refNo: "NMMC Development Plan",
-    date: "2025-07-23",
-    displayDate: "Sanctioned 23 Jul 2025",
-    description: "Navi Mumbai Municipal Corporation's proposed land-use Development Plan map for Node-Airoli, marking Plot No. 5, Sector No. 5, Airoli, Navi Mumbai as the land under reference for this society.",
-    fileUrl: "assets/docs/MAYANK_PLAN.pdf",
+    refNo: "PMC Report",
+    date: "2026-08-01",
+    displayDate: "1 Aug 2026",
+    description: "Feasibility Report for the proposed redevelopment, submitted by the Society's Project Management Consultant on 1 August 2026 and placed before members at SGBM 3.",
+    fileUrl: "assets/docs/Redevelopment_Feasibility_Report.pdf",
+    status: "active"
+  },
+  {
+    id: "doc-04",
+    title: "SGBM 1 Minutes - 1st February 2026",
+    category: "Minutes",
+    refNo: "SGBM / 2026-01",
+    date: "2026-02-01",
+    displayDate: "1 Feb 2026",
+    description: "Minutes of the Special General Body Meeting: Resolution to proceed with redevelopment passed unanimously, Core Redevelopment Committee (CRDC) formed, and Mr. S. M. Suryavanshi appointed as Single Point Contact for the redevelopment process.",
+    fileUrl: "assets/docs/SGBM_Minutes_01Feb2026.pdf",
+    status: "active"
+  },
+  {
+    id: "doc-06",
+    title: "SGBM 2 Minutes - 21st June 2026",
+    category: "Minutes",
+    refNo: "SGBM / 2026-02",
+    date: "2026-06-21",
+    displayDate: "21 Jun 2026",
+    description: "Minutes of the Special General Body Meeting held on 21 June 2026: appointment of M/s. Vastospati Design Group as PMC, M/s. Prime Legal as Legal Firm and Mr. V. Chandrasekhar as Advisor, approval of draft appointment letters and provision for pre-operative expenses.",
+    fileUrl: "assets/docs/SGBM2_Minutes_21Jun2026.pdf",
+    status: "active"
+  },
+  {
+    id: "doc-08",
+    title: "SGBM 3 Minutes - 30th August 2026",
+    category: "Minutes",
+    refNo: "SGBM / 2026-03",
+    date: "2026-08-30",
+    displayDate: "30 Aug 2026",
+    description: "Minutes of the Special General Body Meeting held on 30 August 2026, issued 12 September 2026: corrections to SGBM 2 Resolutions 1, 2, 4 and 8, Resolution No. 1 approving the Redevelopment Feasibility Report, and circulation of the draft Tender Document to members.",
+    fileUrl: "assets/docs/SGBM3_Minutes_30Aug2026.pdf",
+    status: "active"
+  },
+  {
+    id: "doc-11",
+    title: "SGBM 4 (Upcoming) - 20th September 2026",
+    category: "Minutes",
+    refNo: "SGBM / 2026-04",
+    date: "2026-09-20",
+    displayDate: "20 Sep 2026",
+    description: "Special General Body Meeting scheduled for 20 September 2026. Minutes will be published here after the meeting.",
+    fileUrl: "",
     status: "active"
   }
 ];
@@ -264,11 +297,11 @@ const DEFAULT_PAGE_CONTENT = {
       step1Status: "Completed",
       step1Title: "SGBM 1",
       step1Date: "1 Feb 2026",
-      step1Points: "Redevelopment Committee Formed\nAppointed Single Point of Contact\nAppointment of Advisor, PMC, Architect\nRedevelopment through Standalone and/or Amalgamation",
+      step1Points: "Unanimous resolution & written consent for redevelopment\nRedevelopment Committee Formed\nAppointed Single Point of Contact\nRedevelopment through Standalone and/or Amalgamation",
       step2Status: "Completed",
       step2Title: "SGBM 2",
       step2Date: "21 Jun 2026",
-      step2Points: "Chairman of the Meeting\nAppointment of Project Management Consultant (PMC)\nM/s. Vastospati Design Group as PMC\nM/s. Prime Legal appointed as Legal Firm\nMr. V. Chandrasekhar as Advisor\nApproval of Draft Appointment Letter\nProvision of Pre-Operative Expenses",
+      step2Points: "Appointment of Project Management Consultant (PMC)\nAppointment of Legal Counsel\nProject Advisor Onboard\nApproval of Draft Appointment Letter\nApproval for Pre-Operative Expenses\nMethodology of Tendering Approved",
       step3Status: "Completed",
       step3Title: "SGBM 3",
       step3Date: "30 Aug 2026",
@@ -276,7 +309,11 @@ const DEFAULT_PAGE_CONTENT = {
       step4Status: "Upcoming",
       step4Title: "SGBM 4",
       step4Date: "20 Sep 2026",
-      step4Points: ""
+      step4Points: "Approval of Draft Tender Document",
+      step5Status: "Upcoming",
+      // step5Title: "SGBM 5",
+      // step5Date: "Date to be announced",
+      // step5Points: ""
     },
     committee: {
       visible: true,

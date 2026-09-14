@@ -1,7 +1,8 @@
 /**
  * Mayank CHS Redevelopment Portal - Documents Preview Module
  * Preview only: no download links are rendered. Every published document is
- * listed as title + View, in the order they are stored.
+ * listed as title + Preview, in the order they are stored; one without a file
+ * yet (an upcoming meeting) shows an "Available Soon" note instead.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -43,13 +44,15 @@ function renderDocuments() {
       <h3 class="doc-title">${escapeHtml(doc.title)}</h3>
 
       <div class="doc-actions">
+        ${doc.fileUrl ? `
         <button type="button" class="btn-preview" onclick="previewDocumentModal('${escapeHtml(doc.id)}')">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
             <circle cx="12" cy="12" r="3"></circle>
           </svg>
           Preview
-        </button>
+        </button>` : `
+        <span class="doc-pending">Available Soon</span>`}
       </div>
     </article>
   `).join('');
