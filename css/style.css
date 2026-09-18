@@ -255,15 +255,18 @@ dd, h1, h2, h3, h4, p, .member-name, [data-society-reg] { overflow-wrap: break-w
 .hero-figure { position: relative; width: min(100%, 440px); will-change: transform; }
 @media (min-width: 1024px) { .hero-figure { width: min(100%, 520px); } }
 .hero-halo {
-  position: absolute; inset: 14% 4% 4%; z-index: -1;
-  background: radial-gradient(ellipse at 50% 60%, rgba(var(--accent-rgb), 0.25), transparent 66%);
-  filter: blur(34px);
+  display: none;
 }
 .hero-image {
   width: 100%; height: auto;
-  filter: drop-shadow(0 30px 50px rgba(12, 35, 64, 0.22));
-  -webkit-mask-image: linear-gradient(to bottom, #000 84%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 84%, transparent 100%);
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0%, #000 3%, #000 100%),
+    linear-gradient(to right, transparent 0%, #000 3%, #000 97%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, transparent 0%, #000 3%, #000 100%),
+    linear-gradient(to right, transparent 0%, #000 3%, #000 97%, transparent 100%);
+  mask-composite: intersect;
 }
 .js .hero-image { opacity: 0; transform: translateY(40px) scale(0.98); transition: opacity 1.5s var(--ease) 0.3s, transform 1.5s var(--ease) 0.3s; }
 .is-ready .hero-image { opacity: 1; transform: none; }

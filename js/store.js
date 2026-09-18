@@ -13,7 +13,7 @@ const STORAGE_KEYS = {
 
 // Bump whenever DEFAULT_* content below changes, so returning browsers
 // with older cached localStorage data pick up the new official content.
-const CURRENT_DATA_VERSION = '14';
+const CURRENT_DATA_VERSION = '15';
 
 // --- Generic dot-path helpers (used to read/write nested PAGE_CONTENT fields) ---
 function getByPath(obj, path) {
@@ -56,7 +56,7 @@ const DEFAULT_SOCIETY_DETAILS = {
   contactPhone: "",
   contactEmail: "",
   contactHours: "",
-  heroImage: "assets/images/mayank-building-hero.png",
+  heroImage: "assets/images/mayank-building-hero.jpeg",
   herbalImage: "assets/images/herbal-garden.jpg",
   // Approximate location of Sector 5, Airoli, Navi Mumbai - update with the exact
   // plot coordinates from the Admin Panel (Society Details tab).
@@ -210,6 +210,17 @@ const DEFAULT_DOCUMENTS = [
     displayDate: "20 Sep 2026",
     description: "Special General Body Meeting scheduled for 20 September 2026. Minutes will be published here after the meeting.",
     fileUrl: "",
+    status: "active"
+  },
+  {
+    id: "doc-13",
+    title: "AAI - NOC for Height Clearance",
+    category: "NOC",
+    refNo: "SNCR/WEST/B/072126/2876864",
+    date: "2026-07-21",
+    displayDate: "21 Jul 2026",
+    description: "Airports Authority of India (AAI) No Objection Certificate for height clearance for the proposed redevelopment at Plot No. 5, Sector 5, Airoli, Navi Mumbai.",
+    fileUrl: "assets/docs/SNCR_WEST_B_072126_2876864.pdf",
     status: "active"
   }
 ];
@@ -436,7 +447,18 @@ const Store = {
         localStorage.setItem(STORAGE_KEYS.MEMBERS, JSON.stringify(DEFAULT_COMMITTEE_MEMBERS));
         return DEFAULT_COMMITTEE_MEMBERS;
       }
-      return JSON.parse(data);
+      const members = JSON.parse(data);
+      let updated = false;
+      DEFAULT_COMMITTEE_MEMBERS.forEach(defaultMember => {
+        if (!members.some(m => m.id === defaultMember.id)) {
+          members.push(defaultMember);
+          updated = true;
+        }
+      });
+      if (updated) {
+        localStorage.setItem(STORAGE_KEYS.MEMBERS, JSON.stringify(members));
+      }
+      return members;
     } catch (e) {
       console.error("Failed to load members", e);
       return DEFAULT_COMMITTEE_MEMBERS;
@@ -498,7 +520,18 @@ const Store = {
         localStorage.setItem(STORAGE_KEYS.DOCUMENTS, JSON.stringify(DEFAULT_DOCUMENTS));
         return DEFAULT_DOCUMENTS;
       }
-      return JSON.parse(data);
+      const docs = JSON.parse(data);
+      let updated = false;
+      DEFAULT_DOCUMENTS.forEach(defaultDoc => {
+        if (!docs.some(d => d.id === defaultDoc.id)) {
+          docs.push(defaultDoc);
+          updated = true;
+        }
+      });
+      if (updated) {
+        localStorage.setItem(STORAGE_KEYS.DOCUMENTS, JSON.stringify(docs));
+      }
+      return docs;
     } catch (e) {
       console.error("Failed to load documents", e);
       return DEFAULT_DOCUMENTS;
