@@ -137,7 +137,7 @@ const DEFAULT_DOCUMENTS = [
   },
   {
     id: "doc-09",
-    title: "PMC Appointment Letter & Agreement",
+    title: "PMC Agreement",
     category: "Agreement",
     refNo: "PMC / Vastospati Design Group",
     date: "2026-07-02",
