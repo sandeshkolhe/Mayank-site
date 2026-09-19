@@ -99,7 +99,7 @@ const DEFAULT_DOCUMENTS = [
     date: "",
     displayDate: "Current Term",
     description: "Official record listing all Managing Committee (MC) and Redevelopment / Core Redevelopment Committee (RDC) members representing the society and each building in the redevelopment process.",
-    fileUrl: "assets/docs/MC_RDC_Members_List.pdf",
+    fileUrl: "assets/docs/memberslist.pdf",
     status: "active"
   },
   {
