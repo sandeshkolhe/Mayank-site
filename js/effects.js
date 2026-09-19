@@ -39,7 +39,7 @@
       done();
       return;
     }
-    const minimum = new Promise(resolve => setTimeout(resolve, 900));
+    const minimum = new Promise(resolve => setTimeout(resolve, 1200));
     const loaded = new Promise(resolve => {
       if (document.readyState === 'complete') resolve();
       else window.addEventListener('load', resolve, { once: true });
